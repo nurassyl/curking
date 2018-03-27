@@ -67,9 +67,9 @@ GRANT ALL PRIVILEGES ON DATABASE my_app, my_app_test, my_app_dev TO nurasyl;
 \q
 ```
 ---
-# Run development HTTP server
+### Run development HTTP server
 ```
-vagrant reload
+vagrant reload # or vagrant up
 vagrant ssh
 cd /vagrant/app
 RAILS_ENV=development bin/rails server # localhost:8080
