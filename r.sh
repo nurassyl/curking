@@ -1,5 +1,5 @@
 # Ruby developer seed
-# OS: Linux Ubuntu 16.04.3 LTS x64 (Xenial)
+# OS: Linux Ubuntu 16.04 LTS x64 (Xenial)
 # @author: Nurasyl Aldan <nurassyl.aldan@gmail.com>
 # Command to include: source ./r.sh
 
@@ -26,7 +26,7 @@ install_node() {
 
   ### Install Node & NPM
   nvm install 8
-  nvm use 8
+  nvm use 8 --default
 
   ### Install yarn
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -54,14 +54,5 @@ install_pg() {
 }
 
 create_pg_cluster() {
-  locales=$(locale -a)
-  cluster_name=$1
-  for locale in $locales; do
-    if [ $locale == "C.UTF-8" ]; then
-      pgvm cluster create $cluster_name --encoding=UTF8 --locale=$locale
-      pgvm cluster start $cluster_name
-      pgvm cluster list
-    fi
-  done
-  #pgvm console $1@9.6.7
+  pgvm cluster create $1 --encoding=UTF8 --locale=en_US.UTF-8
 }
