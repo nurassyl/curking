@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # NOTE: This will enable public access to the opened port
-  # config.vm.network "forwarded_port", guest: 3000, host: 8080
+  config.vm.network "forwarded_port", guest: 3000, host: 8080
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
@@ -82,5 +82,5 @@ Vagrant.configure("2") do |config|
   end
   config.ssh.insert_key = true # generate private key in directory .vagrant/machines/default/private_key
   config.ssh.keys_only = true # use only .vagrant/machines/default/private_key
-  config.ssh.verify_host_key = true
+  config.ssh.verify_host_key = false # "~/.ssh/known_hosts" not check
 end

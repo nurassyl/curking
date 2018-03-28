@@ -11,8 +11,8 @@ default: &default
   encoding: utf8
 
   host: localhost
-  port: 5433
-  username: nurassyl
+  port: 5432
+  username: nurasyl
   password: 12345
 
 development:
