@@ -1,2 +1,7 @@
+#rm -f ~/.ssh/known_hosts
+vagrant halt
+vagrant destroy
 rm -f ./*-cloudimg-console.log
 rm -fr ./.vagrant
+vagrant up
+vagrant status

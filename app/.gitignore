@@ -18,3 +18,10 @@
 !/tmp/.keep
 
 .byebug_history
+
+# Lock file
+Gemfile.lock
+
+# Vendors
+/vendor/*
+!/vendor/.keep

@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # NOTE: This will enable public access to the opened port
-  config.vm.network "forwarded_port", guest: 3000, host: 8080
+  # config.vm.network "forwarded_port", guest: 3000, host: 8080
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
@@ -65,4 +65,22 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", path: "provision.sh"
+  config.vm.communicator = "ssh"
+  config.vm.hostname = "curking" # Set computer name or real ip|host address
+  config.vm.synced_folder ".", "/project", disabled: false
+
+  # SSH configuration
+  config.ssh.keep_alive = true
+  config.ssh.host = "localhost"
+  config.ssh.port = 2222
+  config.ssh.shell = "bash"
+
+  ### "varning ssh" command configurations (client configuration)
+  if ARGV[0] == "ssh"
+	config.ssh.username = "vagrant"
+  	#config.ssh.password = "12345"
+  end
+  config.ssh.insert_key = true # generate private key in directory .vagrant/machines/default/private_key
+  config.ssh.keys_only = true # use only .vagrant/machines/default/private_key
+  config.ssh.verify_host_key = true
 end

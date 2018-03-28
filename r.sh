@@ -1,4 +1,4 @@
-# Ruby developer seed
+# Requirement file
 # OS: Linux Ubuntu 16.04 LTS x64 (Xenial)
 # @author: Nurasyl Aldan <nurassyl.aldan@gmail.com>
 # Command to include: source ./r.sh
